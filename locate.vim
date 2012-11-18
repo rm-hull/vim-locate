@@ -1,7 +1,7 @@
 " File: locate.vim
 " Author: Richard Hull (rm_hull AT yahoo DOT co DOT uk)
-" Version: 0.1
-" Last Modified: May 03, 2012
+" Version: 0.2
+" Last Modified: May 31, 2012
 "
 " Overview
 " --------
@@ -11,6 +11,11 @@
 "
 " Shamelessly ripped off from:
 "    http://www.vim.org/scripts/script.php?script_id=311
+"
+" History
+" -------
+" 0.1   May 03, 2012  Initial version
+" 0.2   May 31, 2012  Close any existing location windows first
 " 
 " --------------------- Do not modify after this line ---------------------
 if exists("loaded_locate")
@@ -90,7 +95,8 @@ function! s:RunLocateCmd(cmd, pattern, action)
 
     let &efm = old_efm
 
-    " Open the Locate output window
+    " Open the Locate output window (making sure to close any existing)
+    lclose
     botright lopen
 
     call delete(tmpfile)
