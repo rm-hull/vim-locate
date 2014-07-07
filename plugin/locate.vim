@@ -16,7 +16,7 @@
 " -------
 " 0.1   May 03, 2012  Initial version
 " 0.2   May 31, 2012  Close any existing location windows first
-" 
+"
 " --------------------- Do not modify after this line ---------------------
 if exists("loaded_locate")
     finish
@@ -63,8 +63,8 @@ function! s:RunLocateCmd(cmd, pattern, action)
     let cmd_output = system(a:cmd)
 
     if cmd_output == ""
-        echohl WarningMsg | 
-        \ echomsg "Error: Pattern " . a:pattern . " not found" | 
+        echohl WarningMsg |
+        \ echomsg "Error: Pattern " . a:pattern . " not found" |
         \ echohl None
         return
     endif
@@ -106,7 +106,7 @@ endfunction
 " Run the specified locate command
 function! s:RunLocate(cmd_name, locate_cmd, action, ...)
     if a:0 > 0 && (a:1 == "-?" || a:1 == "-h")
-        echo 'Usage: ' . a:cmd_name . " [<locate_options>] [<search_pattern> " 
+        echo 'Usage: ' . a:cmd_name . " [<locate_options>] [<search_pattern> "
         return
     endif
 
@@ -136,7 +136,7 @@ function! s:RunLocate(cmd_name, locate_cmd, action, ...)
     endif
 
     " Get the identifier and file list from user
-    if pattern == "" 
+    if pattern == ""
         let pattern = input("Locate file: ", expand("<cword>"))
         if pattern == ""
             return
